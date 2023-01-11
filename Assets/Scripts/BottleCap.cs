@@ -12,7 +12,7 @@ public class BottleCap : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Star"))
         {
-            GameManager.instance.starsCollect += 1;
+           // GameManager.instance.starsCollect += 1;
             Instantiate(starAnimationPrefab, other.gameObject.transform.position, starAnimationPrefab.transform.rotation);
             Destroy(other.gameObject);
             pickUpStar.Play();
@@ -21,7 +21,7 @@ public class BottleCap : MonoBehaviour
         if (other.gameObject.CompareTag("Destroyer"))
         {
             Destroy(gameObject);
-            GameManager.instance.bottleCapsDestroied += 1;
+          //  GameManager.instance.bottleCapsDestroied += 1;
         }
     }
 }
