@@ -3,30 +3,15 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using YG;
 
 public class GameCanvas : MonoBehaviour
 {
-    [SerializeField] private Text LevelIndexIndicator;
-
-    private void Start()
+    public void BackToHome() => GameManager.instance.LoadMainMenu();
+    public void RestartLevel() => GameManager.instance.RestartLevel();
+    public void ResetProgress()
     {
-        DisplaySceneIndex();
-    }
-
-    public void BackToHome()
-    {
-        SceneManager.LoadScene(0);
-    }
-
-    public void RestartLevel()
-    {
-        int levelIndex = SceneManager.GetActiveScene().buildIndex;
-        SceneManager.LoadScene(levelIndex);
-    }
-
-    private void DisplaySceneIndex()
-    {
-       // int levelIndex = SceneManager.GetActiveScene().buildIndex;
-       // LevelIndexIndicator.text = "Level " + levelIndex.ToString();
+        YandexGame.savesData.savesCompletedLevels = 1;
+        YandexGame.ResetSaveProgress();
     }
 }

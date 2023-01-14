@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using YG;
 
 public class BottleCap : MonoBehaviour
 {
@@ -8,12 +9,23 @@ public class BottleCap : MonoBehaviour
     public GameObject starAnimationPrefab;
     public AudioSource pickUpStar;
 
+    private void Start()
+    {
+        if(YandexGame.savesData.savesSoundsSettings == false)
+        {
+            pickUpStar.volume = 0f;
+        }
+
+        if (YandexGame.savesData.savesSoundsSettings == false)
+        {
+            pickUpStar.volume = 0f;
+        }
+    }
+
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.gameObject.CompareTag("Star"))
         {
-           // GameManager.instance.starsCollect += 1;
-            Instantiate(starAnimationPrefab, other.gameObject.transform.position, starAnimationPrefab.transform.rotation);
             Destroy(other.gameObject);
             pickUpStar.Play();
         }
@@ -21,7 +33,6 @@ public class BottleCap : MonoBehaviour
         if (other.gameObject.CompareTag("Destroyer"))
         {
             Destroy(gameObject);
-          //  GameManager.instance.bottleCapsDestroied += 1;
         }
     }
 }

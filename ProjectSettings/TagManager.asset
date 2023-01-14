@@ -11,6 +11,8 @@ TagManager:
   - BottleCap
   - Destroyer
   - Wood
+  - FadePanel
+  - MusicPlayer
   layers:
   - Default
   - TransparentFX

@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using YG;
 
 public class BottleScript : MonoBehaviour
 {
@@ -31,6 +32,14 @@ public class BottleScript : MonoBehaviour
     private void Awake()
     {
         rb_bottle = GetComponent<Rigidbody2D>();
+    }
+
+    private void Start()
+    {
+        if(YandexGame.savesData.savesSoundsSettings == false)
+        {
+            capOpenSound.volume = 0f;
+        }
     }
 
     private void Update()

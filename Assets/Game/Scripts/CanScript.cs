@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using YG;
 
 public class CanScript : MonoBehaviour
 {
@@ -23,6 +24,14 @@ public class CanScript : MonoBehaviour
     private void Awake()
     {
         rb_bottle = GetComponent<Rigidbody2D>();
+    }
+
+    private void Start()
+    {
+        if(YandexGame.savesData.savesSoundsSettings == false)
+        {
+            canOpenSound.volume = 0f;
+        }
     }
 
     private void OnMouseDown()
