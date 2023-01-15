@@ -50,11 +50,11 @@ public class MenuCanvas : MonoBehaviour
 
     private void LoadSoundsSettings()
     {
-        if (YandexGame.savesData.savesMusicSettings)
+        if (YandexGame.savesData.savesSoundsSettings)
         {
             soundsImage.sprite = spriteSoundsON;
         }
-        else if (!YandexGame.savesData.savesMusicSettings)
+        else if (!YandexGame.savesData.savesSoundsSettings)
         {
             soundsImage.sprite = spriteSoundsOFF;
         }

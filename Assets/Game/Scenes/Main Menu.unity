@@ -417,14 +417,13 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 956934213936684079, guid: 6cc1789269c251547ac66079a08d2c3d,
+        type: 3}
+      propertyPath: Loop
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6cc1789269c251547ac66079a08d2c3d, type: 3}
---- !u!82 &956934212241903203 stripped
-AudioSource:
-  m_CorrespondingSourceObject: {fileID: 956934213936684079, guid: 6cc1789269c251547ac66079a08d2c3d,
-    type: 3}
-  m_PrefabInstance: {fileID: 956934212241903202}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1745814129913662366
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -573,34 +572,9 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 190614642178383618, guid: b5cf9021d39e4a14892b1c6ccd8271a6,
         type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 190614642178383618, guid: b5cf9021d39e4a14892b1c6ccd8271a6,
-        type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 519933459}
-    - target: {fileID: 190614642178383618, guid: b5cf9021d39e4a14892b1c6ccd8271a6,
-        type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: _OnURL_Yandex_DefineDomain
-      objectReference: {fileID: 0}
-    - target: {fileID: 190614642178383618, guid: b5cf9021d39e4a14892b1c6ccd8271a6,
-        type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: YG.YandexGame, Assembly-CSharp
-      objectReference: {fileID: 0}
-    - target: {fileID: 190614642178383618, guid: b5cf9021d39e4a14892b1c6ccd8271a6,
-        type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
-      value: https://yandex.com/games/developer?name=GyulovGames
-      objectReference: {fileID: 0}
-    - target: {fileID: 578917785139976819, guid: b5cf9021d39e4a14892b1c6ccd8271a6,
-        type: 3}
-      propertyPath: musicPlayer
-      value: 
-      objectReference: {fileID: 956934212241903203}
     - target: {fileID: 2310564105653864598, guid: b5cf9021d39e4a14892b1c6ccd8271a6,
         type: 3}
       propertyPath: m_Name
@@ -608,24 +582,9 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2665152230922798907, guid: b5cf9021d39e4a14892b1c6ccd8271a6,
         type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
-      value: 6
-      objectReference: {fileID: 0}
-    - target: {fileID: 2665152230922798907, guid: b5cf9021d39e4a14892b1c6ccd8271a6,
-        type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 519933459}
-    - target: {fileID: 2665152230922798907, guid: b5cf9021d39e4a14892b1c6ccd8271a6,
-        type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: _ReviewShow
-      objectReference: {fileID: 0}
-    - target: {fileID: 2665152230922798907, guid: b5cf9021d39e4a14892b1c6ccd8271a6,
-        type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: YG.YandexGame, Assembly-CSharp
-      objectReference: {fileID: 0}
     - target: {fileID: 3155012237508665115, guid: b5cf9021d39e4a14892b1c6ccd8271a6,
         type: 3}
       propertyPath: m_Pivot.x
@@ -736,31 +695,6 @@ PrefabInstance:
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 519420031}
-    - target: {fileID: 7090316664133115148, guid: b5cf9021d39e4a14892b1c6ccd8271a6,
-        type: 3}
-      propertyPath: m_SizeDelta.x
-      value: 126360
-      objectReference: {fileID: 0}
-    - target: {fileID: 7090316664133115148, guid: b5cf9021d39e4a14892b1c6ccd8271a6,
-        type: 3}
-      propertyPath: m_SizeDelta.y
-      value: -273780
-      objectReference: {fileID: 0}
-    - target: {fileID: 7090316664133115148, guid: b5cf9021d39e4a14892b1c6ccd8271a6,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7090316664133115148, guid: b5cf9021d39e4a14892b1c6ccd8271a6,
-        type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 63180
-      objectReference: {fileID: 0}
-    - target: {fileID: 7090316664133115148, guid: b5cf9021d39e4a14892b1c6ccd8271a6,
-        type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 136890
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b5cf9021d39e4a14892b1c6ccd8271a6, type: 3}
 --- !u!1001 &3476858022692804707
