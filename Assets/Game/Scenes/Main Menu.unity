@@ -196,6 +196,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3157483472541429372, guid: caf9732433f4dc044845763962493607,
+        type: 3}
+      propertyPath: pauseType
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: caf9732433f4dc044845763962493607, type: 3}
 --- !u!114 &519933459 stripped
@@ -357,11 +362,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Music Player
       objectReference: {fileID: 0}
-    - target: {fileID: 956934213936684073, guid: 6cc1789269c251547ac66079a08d2c3d,
-        type: 3}
-      propertyPath: m_TagString
-      value: MusicPlayer
-      objectReference: {fileID: 0}
     - target: {fileID: 956934213936684076, guid: 6cc1789269c251547ac66079a08d2c3d,
         type: 3}
       propertyPath: m_RootOrder
@@ -417,11 +417,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 956934213936684079, guid: 6cc1789269c251547ac66079a08d2c3d,
-        type: 3}
-      propertyPath: Loop
-      value: 1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6cc1789269c251547ac66079a08d2c3d, type: 3}
 --- !u!1001 &1745814129913662366
@@ -431,26 +426,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 826573420933859188, guid: 612c64a8c83d6f5469236cc555b5cf3d,
-        type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 2147483647
-      objectReference: {fileID: 0}
-    - target: {fileID: 826573421259623040, guid: 612c64a8c83d6f5469236cc555b5cf3d,
-        type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 2147483647
-      objectReference: {fileID: 0}
-    - target: {fileID: 826573421377363356, guid: 612c64a8c83d6f5469236cc555b5cf3d,
-        type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 2147483647
-      objectReference: {fileID: 0}
-    - target: {fileID: 1745814129699809947, guid: 612c64a8c83d6f5469236cc555b5cf3d,
-        type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 2147483647
-      objectReference: {fileID: 0}
     - target: {fileID: 1745814130786858400, guid: 612c64a8c83d6f5469236cc555b5cf3d,
         type: 3}
       propertyPath: m_RootOrder
@@ -511,56 +486,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Start Animation
       objectReference: {fileID: 0}
-    - target: {fileID: 1745814130786858403, guid: 612c64a8c83d6f5469236cc555b5cf3d,
-        type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 2147483647
-      objectReference: {fileID: 0}
-    - target: {fileID: 2388041560274502075, guid: 612c64a8c83d6f5469236cc555b5cf3d,
-        type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 2147483647
-      objectReference: {fileID: 0}
-    - target: {fileID: 5950663827477808203, guid: 612c64a8c83d6f5469236cc555b5cf3d,
-        type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 2147483647
-      objectReference: {fileID: 0}
-    - target: {fileID: 5959278597904427019, guid: 612c64a8c83d6f5469236cc555b5cf3d,
-        type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 2147483647
-      objectReference: {fileID: 0}
-    - target: {fileID: 5959278598418547365, guid: 612c64a8c83d6f5469236cc555b5cf3d,
-        type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 2147483647
-      objectReference: {fileID: 0}
-    - target: {fileID: 5959278598993560129, guid: 612c64a8c83d6f5469236cc555b5cf3d,
-        type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 2147483647
-      objectReference: {fileID: 0}
-    - target: {fileID: 6529400626466957842, guid: 612c64a8c83d6f5469236cc555b5cf3d,
-        type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 2147483647
-      objectReference: {fileID: 0}
-    - target: {fileID: 7396044958370971524, guid: 612c64a8c83d6f5469236cc555b5cf3d,
-        type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 2147483647
-      objectReference: {fileID: 0}
-    - target: {fileID: 7396044959103738564, guid: 612c64a8c83d6f5469236cc555b5cf3d,
-        type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 2147483647
-      objectReference: {fileID: 0}
-    - target: {fileID: 7396044959657391453, guid: 612c64a8c83d6f5469236cc555b5cf3d,
-        type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 2147483647
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 612c64a8c83d6f5469236cc555b5cf3d, type: 3}
 --- !u!1001 &3131537012233777738
@@ -580,11 +505,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Menu Canvas
       objectReference: {fileID: 0}
-    - target: {fileID: 2665152230922798907, guid: b5cf9021d39e4a14892b1c6ccd8271a6,
-        type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 519933459}
     - target: {fileID: 3155012237508665115, guid: b5cf9021d39e4a14892b1c6ccd8271a6,
         type: 3}
       propertyPath: m_Pivot.x

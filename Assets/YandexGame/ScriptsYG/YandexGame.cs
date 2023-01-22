@@ -59,6 +59,7 @@ namespace YG
         static string _playerName = "unauthorized";
         static string _playerId;
         static string _playerPhoto;
+        static bool _adBlock;
         static string _photoSize;
         static bool _leaderboardEnable;
         static bool _debug;
@@ -89,6 +90,12 @@ namespace YG
                 }
             } 
             else Instance = this;
+
+            onFullAdShow = null;
+            onFullAdShow += _FullscreenShow;
+
+            onRewAdShow = null;
+            onRewAdShow += _RewardedShow;
         }
 
         [DllImport("__Internal")]
@@ -148,15 +155,11 @@ namespace YG
             formatter.Serialize(fs, savesData);
             fs.Close();
         }
-
-        [DllImport("__Internal")]
-        private static extern void SaveToLocalStorage(string key, string value);
         public static void SaveLocal()
         {
             Message("Save Local");
-#if !UNITY_EDITOR
-            SaveToLocalStorage("savesData", JsonUtility.ToJson(savesData));
-#endif
+            PlayerPrefs.SetString("savesData", JsonUtility.ToJson(savesData));
+            PlayerPrefs.Save();
         }
 
         public static void LoadEditor()
@@ -184,30 +187,14 @@ namespace YG
             else ResetSaveProgress();
         }
 
-        [DllImport("__Internal")]
-        private static extern string LoadFromLocalStorage(string key);
         public static void LoadLocal()
         {
             Message("Load Local");
-
-            if (!HasKey("savesData"))
+            if (PlayerPrefs.GetString("savesData") == "")
                 ResetSaveProgress();
-            else savesData = JsonUtility.FromJson<SavesYG>(LoadFromLocalStorage("savesData"));
-
+            else savesData = JsonUtility.FromJson<SavesYG>(PlayerPrefs.GetString("savesData"));
             AfterLoading();
         }
-
-
-        [DllImport("__Internal")]
-        private static extern int HasKeyInLocalStorage(string key);
-        public static bool HasKey(string key)
-        {
-            return HasKeyInLocalStorage(key) == 1;
-        }
-
-        [DllImport("__Internal")]
-        private static extern void RemoveFromLocalStorage(string key);
-        public void RemoveLocalSaves() => RemoveFromLocalStorage("savesData");
 
         static void AfterLoading()
         {
@@ -383,7 +370,7 @@ namespace YG
         public static void SaveCloud()
         {
             Message("Save Cloud");
-            SaveYG(JsonUtility.ToJson(savesData), Instance.infoYG.flush);
+            SaveYG(JsonUtility.ToJson(savesData), Instance.infoYG.flushSave);
         }
 
         [DllImport("__Internal")]
@@ -417,7 +404,11 @@ namespace YG
             else Message($"До показа Fullscreen рекламы {infoYG.fullscreenAdInterval + 1 - timerShowAd} сек.");
         }
 
-        public static void FullscreenShow() => Instance._FullscreenShow();
+        static Action onFullAdShow;
+        public static void FullscreenShow()
+        {
+            onFullAdShow?.Invoke();
+        }
 
 #if UNITY_EDITOR
         IEnumerator CloseFullAdInEditor()
@@ -456,7 +447,11 @@ namespace YG
             }
         }
 
-        public static void RewVideoShow(int id) => Instance._RewardedShow(id);
+        static Action<int> onRewAdShow;
+        public static void RewVideoShow(int id)
+        {
+            onRewAdShow?.Invoke(id);
+        }
 
 #if UNITY_EDITOR
         IEnumerator CloseVideoInEditor(int id)
@@ -485,7 +480,8 @@ namespace YG
         {
 #if !UNITY_EDITOR
             LanguageRequestInternal();
-#else
+#endif
+#if UNITY_EDITOR
             SetLanguage("ru");
 #endif
         }
@@ -551,32 +547,6 @@ namespace YG
                 Message("New Scores Leaderboard " + nameLB + ": " + score);
         }
 
-        public static void NewLBScoreTimeConvert(string nameLB, float secondsScore)
-        {
-            int result;
-            int indexComma = secondsScore.ToString().IndexOf(",");
-
-            if (secondsScore < 1)
-            {
-                Debug.LogError("You can't record a record below zero!");
-                return;
-            }
-            else if (indexComma <= 0) result = (int)(secondsScore * 1000f);
-            else
-            {
-                string rec = secondsScore.ToString();
-                string sec = rec.Remove(indexComma);
-                string milSec = rec.Remove(0, indexComma + 1);
-                if (milSec.Length > 3) milSec = milSec.Remove(3);
-                else if (milSec.Length == 2) milSec += "0";
-                else if (milSec.Length == 1) milSec += "00";
-                rec = sec + milSec;
-                result = int.Parse(rec);
-            }
-
-            NewLeaderboardScores(nameLB, result);
-        }
-
         [DllImport("__Internal")]
         private static extern void GetLeaderboardScores(string nameLB, int maxQuantityPlayers, int quantityTop, int quantityAround, string photoSizeLB, bool auth);
 
@@ -610,7 +580,7 @@ namespace YG
                 photo[1] = "https://drive.google.com/u/0/uc?id=1MlVQuyQTKMjoX3FDJYnsLKhEb4_M9FQB&export=download"; 
                 photo[2] = "https://drive.google.com/u/0/uc?id=11ZwzHDXm_UNxqnMke2ONo6oJaGVp7VgP&export=download";
                 playersName[0] = "Player"; playersName[1] = "Ivan"; playersName[2] = "Maria";
-                scorePlayers[0] = 23101; scorePlayers[1] = 115202; scorePlayers[2] = 185303;
+                scorePlayers[0] = 23; scorePlayers[1] = 115; scorePlayers[2] = 1053;
 
                 UpdateLbEvent?.Invoke(nameLB, $"Test LeaderBoard\nName: {nameLB}\n1. Player: 10\n2. Ivan: 15\n3. Maria: 23",
                     rank, photo, playersName, scorePlayers, true);
@@ -910,11 +880,11 @@ namespace YG
             }
             else cloudDataState = DataState.NotExist;
 
-            if (HasKey("savesData"))
+            if (PlayerPrefs.GetString("savesData") != "")
             {
                 try
                 {
-                    localData = JsonUtility.FromJson<SavesYG>(LoadFromLocalStorage("savesData"));
+                    localData = JsonUtility.FromJson<SavesYG>(PlayerPrefs.GetString("savesData"));
                 }
                 catch (Exception e)
                 {
@@ -966,7 +936,7 @@ namespace YG
                 Message("Cloud Saves - " + cloudDataState);
                 Message("Local Saves - Broken! Data Recovering...");
                 ResetSaveProgress();
-                savesData = JsonUtility.FromJson<SavesYG>(LoadFromLocalStorage("savesData"));
+                savesData = JsonUtility.FromJson<SavesYG>(PlayerPrefs.GetString("savesData"));
                 Message("Local Saves Partially Restored!");
                 AfterLoading();
             }

@@ -1,8 +1,4 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
-using UnityEngine.UI;
 using YG;
 
 public class GameCanvas : MonoBehaviour
@@ -12,6 +8,6 @@ public class GameCanvas : MonoBehaviour
     public void ResetProgress()
     {
         YandexGame.savesData.savesCompletedLevels = 1;
-        YandexGame.ResetSaveProgress();
+        YandexGame.SaveProgress();
     }
 }

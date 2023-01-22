@@ -1,5 +1,4 @@
-﻿
-namespace YG
+﻿namespace YG
 {
     [System.Serializable]
     public class SavesYG
@@ -11,9 +10,10 @@ namespace YG
         public bool promptDone;
 
 
+
         // Ваши сохранения
-        public bool savesMusicSettings;
-        public bool savesSoundsSettings;
+        public bool savesMusicSettings = true;
+        public bool savesSoundsSettings = true;
         public int savesCompletedLevels = 1;
         // ...
     }

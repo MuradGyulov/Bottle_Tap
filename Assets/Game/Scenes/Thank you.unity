@@ -697,8 +697,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3ad5fb3060a5db542a5c3ffafbfe42b5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ruTextVersion: "\u041D\u041E\u0412\u042B\u0415 \u0423\u0420\u041E\u0412\u041D\u0418
-    \u041D\u0410 \u041F\u041E\u0414\u0425\u041E\u0414\u0415..."
+  ruTextVersion: "\u0413\u0420\u042F\u0414\u0423\u0422 \u041D\u041E\u0412\u042B\u0415
+    \u0423\u0420\u041E\u0412\u041D\u0418..."
   enTextVersion: MORE LEVELS ARE COMING...
 --- !u!1001 &1191528312
 PrefabInstance:
